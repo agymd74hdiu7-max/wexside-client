@@ -1,6 +1,6 @@
 // API КЛИЕНТ ДЛЯ WEXSIDE С ИНТЕГРАЦИЕЙ CLOUDFLARE WORKERS
 const CF_API_CONFIG = {
-  "apiKey": "cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce",
+  "apiKey": "YOUR_CLOUDFLARE_API_KEY_HERE",
   "baseUrl": "https://api.cloudflare.com/client/v4",
   "endpoints": {
     "auth": "https://wexside.ru/api/auth",
@@ -13,7 +13,7 @@ const CF_API_CONFIG = {
     "cfZones": "https://api.cloudflare.com/client/v4/zones"
   },
   "headers": {
-    "Authorization": "Bearer cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce",
+    "Authorization": "Bearer YOUR_CLOUDFLARE_API_KEY_HERE",
     "Content-Type": "application/json",
     "User-Agent": "Wexside-Client-Local/1.0.0"
   },

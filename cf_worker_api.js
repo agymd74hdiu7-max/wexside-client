@@ -1,7 +1,7 @@
 // CLOUDFLARE WORKERS API ДЛЯ WEXSIDE САЙТА
-// Использует твой API ключ: cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce
+// Использует твой API ключ: YOUR_CLOUDFLARE_API_KEY_HERE
 
-const CF_API_KEY = 'cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce';
+const CF_API_KEY = 'YOUR_CLOUDFLARE_API_KEY_HERE';
 const CF_ACCOUNT_ID = 'YOUR_ACCOUNT_ID'; // Нужно заменить на твой Account ID
 const CF_WORKER_NAME = 'wexside-auth-api';
 
