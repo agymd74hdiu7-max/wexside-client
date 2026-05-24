@@ -1,0 +1,25 @@
+{
+  "apiKey": "cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce",
+  "baseUrl": "https://api.cloudflare.com/client/v4",
+  "endpoints": {
+    "auth": "https://wexside.ru/api/auth",
+    "products": "https://wexside.ru/api/products",
+    "payments": "https://wexside.ru/api/payments",
+    "users": "https://wexside.ru/api/users",
+    "cabinet": "https://wexside.ru/api/cabinet",
+    "cfProxy": "YOUR_CLOUDFLARE_WORKER_URL",
+    "cfAuth": "https://api.cloudflare.com/client/v4/user/tokens/verify",
+    "cfZones": "https://api.cloudflare.com/client/v4/zones"
+  },
+  "headers": {
+    "Authorization": "Bearer cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce",
+    "Content-Type": "application/json",
+    "User-Agent": "Wexside-Client-Local/1.0.0"
+  },
+  "settings": {
+    "useProxy": true,
+    "fallbackToOriginal": true,
+    "cacheResponses": true,
+    "timeout": 10000
+  }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование API Wexside</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f0f0f;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ff6b35;
+            text-align: center;
+        }
+        .card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .api-key {
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        .btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #ff8b5c;
+        }
+        .btn-secondary {
+            background: #333;
+        }
+        .btn-secondary:hover {
+            background: #444;
+        }
+        .result {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { color: #2ecc71; }
+        .error { color: #e74c3c; }
+        .warning { color: #f39c12; }
+        .info { color: #3498db; }
+        .log {
+            padding: 5px;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 ТЕСТИРОВАНИЕ API WEXSIDE</h1>
+        
+        <div class="card">
+            <h2>🔑 API Ключ Cloudflare Workers</h2>
+            <div class="api-key">cfut_CWUUD7566IJDhUZEDxtzYSIvAEH7A2RvZmgNdfRe259fdbce</div>
+            <p>Это ваш личный API ключ для Cloudflare Workers.</p>
+        </div>
+        
+        <div class="card">
+            <h2>🚀 Тестирование API</h2>
+            <p>Нажмите кнопки ниже для тестирования различных API endpoints:</p>
+            
+            <div>
+                <button class="btn" onclick="testProducts()">📦 Тест продуктов</button>
+                <button class="btn" onclick="testAuth()">🔐 Тест авторизации</button>
+                <button class="btn" onclick="testCabinet()">👤 Тест кабинета</button>
+                <button class="btn" onclick="runFullTest()">🧪 Полный тест</button>
+                <button class="btn btn-secondary" onclick="clearLogs()">🗑️ Очистить логи</button>
+            </div>
+            
+            <div id="logs" class="result">
+                <!-- Логи будут здесь -->
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📋 Инструкция по настройке</h2>
+            <ol>
+                <li>Замените <code>YOUR_CLOUDFLARE_WORKER_URL</code> в <code>cf_api_config.json</code> на URL вашего Cloudflare Worker</li>
+                <li>Добавьте <code>&lt;script src="wexside_api.js"&gt;&lt;/script&gt;</code> в HTML файлы</li>
+                <li>Используйте <code>window.wexsideApi</code> для работы с API</li>
+                <li>Для реальной работы настройте CORS в Cloudflare Worker</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="wexside_api.js"></script>
+    <script>
+        const logsElement = document.getElementById('logs');
+        let logCount = 0;
+        
+        function addLog(message, type = 'info') {
+            logCount++;
+            const logElement = document.createElement('div');
+            logElement.className = `log ${type}`;
+            logElement.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsElement.appendChild(logElement);
+            logsElement.scrollTop = logsElement.scrollHeight;
+        }
+        
+        async function testProducts() {
+            addLog('📦 Запрос продуктов...', 'info');
+            try {
+                const result = await window.wexsideApi.getProducts();
+                addLog(`✅ Успешно: ${result.products?.length || 0} продуктов`, 'success');
+                console.log('Результат продуктов:', result);
+            } catch (error) {
+                addLog(`❌ Ошибка: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testAuth() {
+            addLog('🔐 Тест авторизации...', 'info');
+            try {
+                const result = await window.wexsideApi.login('demo@wexside.ru', 'demo123');
+                addLog(`✅ Успешно: пользователь ${result.user?.username}`, 'success');
+                console.log('Результат авторизации:', result);
+            } catch (error) {
+                addLog(`❌ Ошибка: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testCabinet() {
+            addLog('👤 Тест кабинета...', 'info');
+            try {
+                const result = await window.wexsideApi.getUserCabinet(1);
+                addLog(`✅ Успешно: баланс ${result.user?.balance}`, 'success');
+                console.log('Результат кабинета:', result);
+            } catch (error) {
+                addLog(`❌ Ошибка: ${error.message}`, 'error');
+            }
+        }
+        
+        async function runFullTest() {
+            addLog('🧪 ЗАПУСК ПОЛНОГО ТЕСТА...', 'warning');
+            const result = await window.wexsideDebug.testApi();
+            addLog('✅ Полный тест завершен', 'success');
+        }
+        
+        function clearLogs() {
+            logsElement.innerHTML = '';
+            addLog('🗑️ Логи очищены', 'info');
+        }
+        
+        // Автоматический тест при загрузке
+        window.addEventListener('load', () => {
+            addLog('🚀 Wexside API тестер загружен', 'info');
+            addLog(`🔑 API ключ: ${'cfut_CWUUD...Re259fdbce'}`, 'info');
+            addLog('💡 Нажмите кнопки для тестирования API', 'info');
+        });
+    </script>
+</body>
+</html>

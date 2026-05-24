@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/Wexside-R4FLDk2O.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лучшее игровое решение - Wexside Client</title>
+    <meta name="description" content="Скачать и купить Wexside. Обеспечь себе преимущество в игре. Быстрая загрузка и поддержка."/>
+    <script type="module" crossorigin src="assets/index-BdlOSv0G.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-B6Ch1FFV.css">
+  
+    <link rel="stylesheet" href="main_images/images.css"></head>
+  <body>
+    <div id="root">
+      <!-- Fallback контент пока грузится React -->
+      <div class="loading">
+        <div class="loading-spinner"></div>
+        <div style="margin-top: 30px; padding: 20px; background: rgba(255, 107, 53, 0.1); border-radius: 10px; max-width: 600px;">
+          <h4 style="color: #ff6b35; margin-top: 0;">🖼️ Примеры изображений для главной страницы:</h4>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px;">
+            <div style="text-align: center;">
+              <div class="icon-anti-cheat" style="width: 50px; height: 50px; margin: 0 auto;"></div>
+              <div style="font-size: 10px; color: #666; margin-top: 5px;">Anti-Cheat</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="icon-optimization" style="width: 50px; height: 50px; margin: 0 auto;"></div>
+              <div style="font-size: 10px; color: #666; margin-top: 5px;">Optimization</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="icon-support" style="width: 50px; height: 50px; margin: 0 auto;"></div>
+              <div style="font-size: 10px; color: #666; margin-top: 5px;">Support</div>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: #888; margin-top: 15px;">
+            Все изображения скачаны в папку <code>main_images/</code>
+          </p>
+        </div>
+        <div class="loading-text">Wexside Client загружается...</div>
+        <div style="color: #666; font-size: 14px; margin-top: 20px;">
+          Страница: cabinet
+        </div>
+      </div></div>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js?id=105518159",
+        "ym"
+      );
+
+      ym(105518159, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/105518159"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+  
+    <script>
+      // Дебаг скрипт для проверки загрузки
+      window.addEventListener('load', function() {
+        console.log('=== WEXSIDE DEBUG (wexside_cabinet.html) ===');
+        console.log('1. Проверка файлов:');
+        
+        // Проверяем JS
+        const jsScripts = document.querySelectorAll('script[src*="index-BdlOSv0G"]');
+        console.log('   JS файл:', jsScripts.length > 0 ? '✅ Найден' : '❌ Не найден');
+        if (jsScripts.length > 0) {
+          console.log('   JS src:', jsScripts[0].src);
+        }
+        
+        // Проверяем CSS
+        const cssLinks = document.querySelectorAll('link[href*="index-B6Ch1FFV"]');
+        console.log('   CSS файл:', cssLinks.length > 0 ? '✅ Найден' : '❌ Не найден');
+        if (cssLinks.length > 0) {
+          console.log('   CSS href:', cssLinks[0].href);
+        }
+        
+        // Проверяем иконку
+        const iconLinks = document.querySelectorAll('link[href*="Wexside-R4FLDk2O"]');
+        console.log('   Иконка:', iconLinks.length > 0 ? '✅ Найден' : '❌ Не найден');
+        
+        console.log('2. Проверка ошибок:');
+        window.addEventListener('error', function(e) {
+          console.error('   Ошибка:', e.message, 'в', e.filename, 'строка', e.lineno);
+        });
+        
+        console.log('3. Проверка React:');
+        setTimeout(() => {
+          const root = document.getElementById('root');
+          if (root && root.children.length === 1 && root.children[0].className === 'loading') {
+            console.log('   ⚠️ React не загрузился - показываем fallback');
+            console.log('   💡 Совет: Запустите локальный сервер (node server.js)');
+          } else {
+            console.log('   ✅ React загружен и работает');
+          }
+        }, 3000);
+        
+        console.log('=== КОНЕЦ ДЕБАГА ===');
+      });
+    </script>
+  </body>
+</html>
