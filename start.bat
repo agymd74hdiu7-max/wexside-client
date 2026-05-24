@@ -5,7 +5,7 @@ echo ============================================
 echo    🚀 WEXSIDE CLIENT - ЗАПУСК СЕРВЕРА
 echo ============================================
 echo.
-cd /d "C:\Users\agymd\OneDrive\Desktop\Project\wexside_sources"
+cd /d "Путь к папке"
 echo Запускаю сервер на http://localhost:3000
 echo.
 npx serve . -p 3000
